@@ -221,7 +221,7 @@
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
-						<string>Success</string>
+						<string></string>
 						<key>outputlabel</key>
 						<string>success</string>
 						<key>uid</key>
