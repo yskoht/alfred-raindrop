@@ -3,7 +3,6 @@ package sqlite3
 import (
 	"database/sql"
 	"fmt"
-	"os"
 	"strings"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -26,16 +25,20 @@ func insertValues(raindrops []raindrop.Raindrop) string {
 }
 
 func CreateDB(raindrops []raindrop.Raindrop) error {
-	os.Remove(DB_FILE)
-
 	db, err := sql.Open("sqlite3", DB_FILE)
 	if err != nil {
 		return err
 	}
 	defer db.Close()
 
-	createTable := "create table raindrops (id integer not null primary key, title text, link text)"
-	_, err = db.Exec(createTable)
+	dropTable := "drop table raindrops"
+	_, err = db.Exec(dropTable)
+	if err != nil {
+		return err
+	}
+
+	createRaindropsTable := "create table raindrops (id integer not null primary key, title text not null, link text not null)"
+	_, err = db.Exec(createRaindropsTable)
 	if err != nil {
 		return err
 	}
@@ -49,6 +52,12 @@ func CreateDB(raindrops []raindrop.Raindrop) error {
 		if err != nil {
 			return err
 		}
+	}
+
+	createViewCountsTable := "create table if not exists view_counts (id integer not null primary key, raindrop_id integer not null, count integer not null"
+	_, err = db.Exec(createViewCountsTable)
+	if err != nil {
+		return err
 	}
 
 	return nil
