@@ -31,7 +31,7 @@ func CreateDB(raindrops []raindrop.Raindrop) error {
 	}
 	defer db.Close()
 
-	dropTable := "drop table raindrops"
+	dropTable := "drop table if exists raindrops"
 	_, err = db.Exec(dropTable)
 	if err != nil {
 		return err
@@ -54,7 +54,7 @@ func CreateDB(raindrops []raindrop.Raindrop) error {
 		}
 	}
 
-	createViewCountsTable := "create table if not exists view_counts (id integer not null primary key, raindrop_id integer not null, count integer not null)"
+	createViewCountsTable := "create table if not exists view_counts (id integer not null primary key autoincrement, raindrop_id integer not null unique, count integer not null)"
 	_, err = db.Exec(createViewCountsTable)
 	if err != nil {
 		return err
@@ -144,4 +144,24 @@ func Find(id int) (*Raindrop, error) {
 	}
 
 	return raindrop, nil
+}
+
+func IncrementViewCount(id int) error {
+	db, err := sql.Open("sqlite3", DB_FILE)
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	stmt, err := db.Prepare("insert into view_counts(raindrop_id, count) values (?, 0) on conflict(raindrop_id) do update set count = count + 1")
+	if err != nil {
+		return err
+	}
+
+	_, err = stmt.Exec(id)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
