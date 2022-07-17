@@ -27,6 +27,7 @@ func run() {
 			Valid(true)
 	}
 
+	wf.WarnEmpty("Bookmark not found", "Try a different query?")
 	wf.SendFeedback()
 }
 
