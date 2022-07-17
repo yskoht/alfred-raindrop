@@ -54,7 +54,7 @@ func CreateDB(raindrops []raindrop.Raindrop) error {
 		}
 	}
 
-	createViewCountsTable := "create table if not exists view_counts (id integer not null primary key, raindrop_id integer not null, count integer not null"
+	createViewCountsTable := "create table if not exists view_counts (id integer not null primary key, raindrop_id integer not null, count integer not null)"
 	_, err = db.Exec(createViewCountsTable)
 	if err != nil {
 		return err
