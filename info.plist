@@ -37,7 +37,17 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>1CA1775B-3DBE-45A2-8CD7-050D1A49D63A</string>
+				<string>CB121D4A-1FFA-424D-9C47-883EA7172BD9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>58CDC5E3-68EA-4F2A-86D8-DB959D614424</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -48,6 +58,19 @@
 		</array>
 		<key>A61B0C9F-06D4-494C-94F9-2D7DFF9341F4</key>
 		<array/>
+		<key>CB121D4A-1FFA-424D-9C47-883EA7172BD9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1CA1775B-3DBE-45A2-8CD7-050D1A49D63A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>D4A849C5-70A6-4C10-8957-41FC5B8E09CB</key>
 		<array>
 			<dict>
@@ -332,6 +355,29 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./bin/raindrop-find $1</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>CB121D4A-1FFA-424D-9C47-883EA7172BD9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -378,6 +424,29 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./bin/raindrop-increment $1</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>58CDC5E3-68EA-4F2A-86D8-DB959D614424</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -386,9 +455,16 @@
 		<key>1CA1775B-3DBE-45A2-8CD7-050D1A49D63A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>265</integer>
+			<integer>495</integer>
 			<key>ypos</key>
 			<integer>500</integer>
+		</dict>
+		<key>58CDC5E3-68EA-4F2A-86D8-DB959D614424</key>
+		<dict>
+			<key>xpos</key>
+			<integer>295</integer>
+			<key>ypos</key>
+			<integer>640</integer>
 		</dict>
 		<key>5911B878-544C-48E4-B214-33042801E882</key>
 		<dict>
@@ -424,6 +500,13 @@
 			<integer>645</integer>
 			<key>ypos</key>
 			<integer>35</integer>
+		</dict>
+		<key>CB121D4A-1FFA-424D-9C47-883EA7172BD9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>295</integer>
+			<key>ypos</key>
+			<integer>500</integer>
 		</dict>
 		<key>D4A849C5-70A6-4C10-8957-41FC5B8E09CB</key>
 		<dict>
