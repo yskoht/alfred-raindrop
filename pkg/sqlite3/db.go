@@ -11,9 +11,7 @@ import (
 )
 
 const (
-	DB_FILE    = "./db/db.sqlite3"
-	TABLE_NAME = "raindrops"
-	SCHEMA     = "id integer not null primary key, title text, link text"
+	DB_FILE = "./db/db.sqlite3"
 )
 
 func insertValues(raindrops []raindrop.Raindrop) string {
@@ -36,10 +34,7 @@ func CreateDB(raindrops []raindrop.Raindrop) error {
 	}
 	defer db.Close()
 
-	createTable := fmt.Sprintf(
-		"%s %s (%s)",
-		"create table", TABLE_NAME, SCHEMA,
-	)
+	createTable := "create table raindrops (id integer not null primary key, title text, link text)"
 	_, err = db.Exec(createTable)
 	if err != nil {
 		return err
@@ -48,8 +43,7 @@ func CreateDB(raindrops []raindrop.Raindrop) error {
 	if len(raindrops) > 0 {
 		insertValues := insertValues(raindrops)
 		insert := fmt.Sprintf(
-			"%s %s %s %s",
-			"insert into", TABLE_NAME, "(id, title, link) values", insertValues,
+			"insert into raindrops (id, title, link) values %s", insertValues,
 		)
 		_, err = db.Exec(insert)
 		if err != nil {
@@ -75,8 +69,7 @@ func Search(keywords []string) ([]Raindrop, error) {
 
 	pattern := "'%" + strings.Join(keywords, "%") + "%'"
 	search := fmt.Sprintf(
-		"%s %s %s %s %s %s",
-		"select id, title, link from", TABLE_NAME, "where title like", pattern, "or link like", pattern,
+		"select id, title, link from raindrops where title like %s or link like %s", pattern, pattern,
 	)
 	rows, err := db.Query(search)
 	if err != nil {
