@@ -278,14 +278,14 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string></string>
+				<string>Please set testToken to environment variables</string>
 				<key>title</key>
-				<string>{query}</string>
+				<string>Raindrop: testToken not found</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>6A61DDC1-3BD3-4227-B387-21DEAC847BFD</string>
+			<string>5911B878-544C-48E4-B214-33042801E882</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -299,14 +299,14 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>Please set testToken to environment variables</string>
+				<string></string>
 				<key>title</key>
-				<string>Raindrop: testToken not found</string>
+				<string>{query}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>5911B878-544C-48E4-B214-33042801E882</string>
+			<string>6A61DDC1-3BD3-4227-B387-21DEAC847BFD</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -393,23 +393,23 @@
 		<key>5911B878-544C-48E4-B214-33042801E882</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>435</integer>
 			<key>ypos</key>
-			<integer>310</integer>
+			<integer>280</integer>
 		</dict>
 		<key>6A61DDC1-3BD3-4227-B387-21DEAC847BFD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>780</integer>
+			<integer>955</integer>
 			<key>ypos</key>
-			<integer>235</integer>
+			<integer>285</integer>
 		</dict>
 		<key>7BC4D077-C06F-47E8-AEA1-A7AFA206F938</key>
 		<dict>
 			<key>xpos</key>
-			<integer>630</integer>
+			<integer>810</integer>
 			<key>ypos</key>
-			<integer>190</integer>
+			<integer>185</integer>
 		</dict>
 		<key>7E2F33CA-9EBF-4A8E-A1A7-BAC2FC4EF7BA</key>
 		<dict>
@@ -421,16 +421,16 @@
 		<key>A61B0C9F-06D4-494C-94F9-2D7DFF9341F4</key>
 		<dict>
 			<key>xpos</key>
-			<integer>465</integer>
+			<integer>645</integer>
 			<key>ypos</key>
-			<integer>40</integer>
+			<integer>35</integer>
 		</dict>
 		<key>D4A849C5-70A6-4C10-8957-41FC5B8E09CB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>640</integer>
 			<key>ypos</key>
-			<integer>170</integer>
+			<integer>165</integer>
 		</dict>
 		<key>DB0B5B8D-2133-446C-BD4D-AD390BF4F357</key>
 		<dict>
@@ -442,9 +442,9 @@
 		<key>F126609F-4FB2-4E8B-8C7F-8E2233D3873A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>780</integer>
+			<integer>955</integer>
 			<key>ypos</key>
-			<integer>110</integer>
+			<integer>160</integer>
 		</dict>
 		<key>FFCC7C85-1593-4DC9-9CE0-715921A00F36</key>
 		<dict>
