@@ -36,7 +36,7 @@
 				<false/>
 			</dict>
 		</array>
-		<key>FFCC7C85-1593-4DC9-9CE0-715921A00F36</key>
+		<key>F0071189-1DE0-4DE0-939E-BD8A43BBD2E4</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -45,12 +45,39 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>sourceoutputuid</key>
+				<string>368E7C4A-8340-4F1E-9F66-CBE5239B8D15</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>D4A849C5-70A6-4C10-8957-41FC5B8E09CB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>368E7C4A-8340-4F1E-9F66-CBE5239B8D15</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>5911B878-544C-48E4-B214-33042801E882</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>FFCC7C85-1593-4DC9-9CE0-715921A00F36</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F0071189-1DE0-4DE0-939E-BD8A43BBD2E4</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -94,23 +121,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>raindrop-sync</string>
-				<key>subtext</key>
-				<string>Download bookmarks from Raindrop</string>
-				<key>text</key>
-				<string>Raindrop Bookmarks Sync</string>
-				<key>withspace</key>
+				<key>concurrently</key>
 				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./bin/raindrop-sync</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>FFCC7C85-1593-4DC9-9CE0-715921A00F36</string>
+			<string>D4A849C5-70A6-4C10-8957-41FC5B8E09CB</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -136,25 +165,74 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>raindrop-sync</string>
+				<key>subtext</key>
+				<string>Download bookmarks from Raindrop</string>
+				<key>text</key>
+				<string>Raindrop Bookmarks Sync</string>
+				<key>withspace</key>
 				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./bin/raindrop-sync</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>D4A849C5-70A6-4C10-8957-41FC5B8E09CB</string>
+			<string>FFCC7C85-1593-4DC9-9CE0-715921A00F36</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:testToken}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>1</integer>
+						<key>matchstring</key>
+						<string></string>
+						<key>outputlabel</key>
+						<string>testToken found</string>
+						<key>uid</key>
+						<string>368E7C4A-8340-4F1E-9F66-CBE5239B8D15</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>testToken not found</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>F0071189-1DE0-4DE0-939E-BD8A43BBD2E4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Error: Please set "testToken" to environment variables</string>
+				<key>title</key>
+				<string>Raindrop</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>5911B878-544C-48E4-B214-33042801E882</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -232,44 +310,58 @@
 		<key>1CA1775B-3DBE-45A2-8CD7-050D1A49D63A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>215</integer>
+			<integer>265</integer>
 			<key>ypos</key>
-			<integer>315</integer>
+			<integer>500</integer>
+		</dict>
+		<key>5911B878-544C-48E4-B214-33042801E882</key>
+		<dict>
+			<key>xpos</key>
+			<integer>460</integer>
+			<key>ypos</key>
+			<integer>310</integer>
 		</dict>
 		<key>7E2F33CA-9EBF-4A8E-A1A7-BAC2FC4EF7BA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>45</integer>
+			<integer>95</integer>
 			<key>ypos</key>
-			<integer>315</integer>
+			<integer>500</integer>
 		</dict>
 		<key>A61B0C9F-06D4-494C-94F9-2D7DFF9341F4</key>
 		<dict>
 			<key>xpos</key>
-			<integer>215</integer>
+			<integer>455</integer>
 			<key>ypos</key>
-			<integer>75</integer>
+			<integer>45</integer>
 		</dict>
 		<key>D4A849C5-70A6-4C10-8957-41FC5B8E09CB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>215</integer>
+			<integer>455</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>165</integer>
+		</dict>
+		<key>F0071189-1DE0-4DE0-939E-BD8A43BBD2E4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>250</integer>
+			<key>ypos</key>
+			<integer>195</integer>
 		</dict>
 		<key>F126609F-4FB2-4E8B-8C7F-8E2233D3873A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>395</integer>
+			<integer>630</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>170</integer>
 		</dict>
 		<key>FFCC7C85-1593-4DC9-9CE0-715921A00F36</key>
 		<dict>
 			<key>xpos</key>
-			<integer>45</integer>
+			<integer>90</integer>
 			<key>ypos</key>
-			<integer>75</integer>
+			<integer>175</integer>
 		</dict>
 	</dict>
 	<key>variables</key>
