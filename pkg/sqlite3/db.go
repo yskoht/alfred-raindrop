@@ -102,7 +102,14 @@ func Search(keywords []string) ([]Raindrop, error) {
 	}
 	defer db.Close()
 
-	search, err := db.Prepare("select id, title, link from raindrops where title like ? or link like ?")
+	search, err := db.Prepare(
+		"select raindrops.id, raindrops.title, raindrops.link" +
+			" from raindrops" +
+			" left outer join view_counts on raindrops.id = view_counts.raindrop_id" +
+			" where title like ? or link like ?" +
+			" order by view_counts.count desc",
+	)
+
 	if err != nil {
 		return nil, err
 	}
