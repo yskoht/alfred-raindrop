@@ -197,7 +197,7 @@
 				<key>subtext</key>
 				<string>Download bookmarks from Raindrop</string>
 				<key>text</key>
-				<string>Raindrop Bookmarks Sync</string>
+				<string>Raindrop Bookmark Sync</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
