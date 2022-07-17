@@ -2,6 +2,8 @@
 
 This is a workflow for [Alfred](https://www.alfredapp.com/) that opens a web page from [Raindrop](https://raindrop.io/) bookmark.
 
+<img src="https://user-images.githubusercontent.com/34795067/179398992-3c3c02f6-e6f3-4e34-9501-b77bf1b56b3e.gif" width="480px" />
+
 ## Install
 
 ### Create Raindrop test token
