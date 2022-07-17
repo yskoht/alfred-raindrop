@@ -49,6 +49,12 @@ Type `r`, and then keywords.
 
 <img src="https://user-images.githubusercontent.com/34795067/179388159-7feddec0-f762-41b9-a3fa-e53c1f1955db.png" width="480px" />
 
+### Reset
+
+Remove local database.
+
+<img src="https://user-images.githubusercontent.com/34795067/179417908-ba3367f1-fd89-46b4-a72f-78c6213d0234.png" width="480px" />
+
 ## License
 
 MIT
