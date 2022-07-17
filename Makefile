@@ -19,3 +19,6 @@ format:
 	gofmt -w ./pkg/file/exists.go
 	gofmt -w ./pkg/raindrop/api.go
 	gofmt -w ./pkg/sqlite3/db.go
+
+clean:
+	rm -rf ./bin/raindrop-*
