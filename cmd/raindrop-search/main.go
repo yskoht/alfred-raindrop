@@ -22,7 +22,7 @@ func exists(filename string) bool {
 
 func run() {
 	if !exists(sqlite3.DB_FILE) {
-		wf.Warn("Database not found", "Please type `raindrop-sync`")
+		wf.Warn("Database not found", "Please run `raindrop-sync`")
 		return
 	}
 
