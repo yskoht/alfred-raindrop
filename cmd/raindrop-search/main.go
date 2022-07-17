@@ -1,6 +1,8 @@
 package main
 
 import (
+	"strconv"
+
 	"github.com/yskoht/alfred-raindrop/pkg/file"
 	"github.com/yskoht/alfred-raindrop/pkg/sqlite3"
 
@@ -32,7 +34,7 @@ func run() {
 		wf.
 			NewItem(raindrop.Title).
 			Subtitle(raindrop.Link).
-			Arg(raindrop.Link).
+			Arg(strconv.Itoa(raindrop.ID)).
 			Valid(true)
 	}
 
