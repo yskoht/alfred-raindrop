@@ -76,11 +76,13 @@ func Search(keywords []string) ([]Raindrop, error) {
 	}
 	defer db.Close()
 
+	search, err := db.Prepare("select id, title, link from raindrops where title like ? or link like ?")
+	if err != nil {
+		return nil, err
+	}
+
 	pattern := "'%" + strings.Join(keywords, "%") + "%'"
-	search := fmt.Sprintf(
-		"select id, title, link from raindrops where title like %s or link like %s", pattern, pattern,
-	)
-	rows, err := db.Query(search)
+	rows, err := search.Query(pattern, pattern)
 	if err != nil {
 		return nil, err
 	}
