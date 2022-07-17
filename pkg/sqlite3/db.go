@@ -37,7 +37,12 @@ func CreateDB(raindrops []raindrop.Raindrop) error {
 		return err
 	}
 
-	createRaindropsTable := "create table raindrops (id integer not null primary key, title text not null, link text not null)"
+	createRaindropsTable :=
+		"create table raindrops (" +
+			"id integer not null primary key," +
+			"title text not null," +
+			"link text not null" +
+			")"
 	_, err = db.Exec(createRaindropsTable)
 	if err != nil {
 		return err
@@ -54,7 +59,13 @@ func CreateDB(raindrops []raindrop.Raindrop) error {
 		}
 	}
 
-	createViewCountsTable := "create table if not exists view_counts (id integer not null primary key autoincrement, raindrop_id integer not null unique, count integer not null)"
+	createViewCountsTable :=
+		"create table" +
+			" if not exists view_counts (" +
+			" id integer not null primary key autoincrement," +
+			" raindrop_id integer not null unique," +
+			" count integer not null" +
+			")"
 	_, err = db.Exec(createViewCountsTable)
 	if err != nil {
 		return err
@@ -139,7 +150,9 @@ func Find(id int) (*Raindrop, error) {
 	}
 	defer db.Close()
 
-	stmt, err := db.Prepare("select id, title, link from raindrops where id = ?")
+	stmt, err := db.Prepare(
+		"select id, title, link from raindrops where id = ?",
+	)
 	if err != nil {
 		return nil, err
 	}
@@ -160,7 +173,11 @@ func IncrementViewCount(id int) error {
 	}
 	defer db.Close()
 
-	stmt, err := db.Prepare("insert into view_counts(raindrop_id, count) values (?, 0) on conflict(raindrop_id) do update set count = count + 1")
+	stmt, err := db.Prepare(
+		"insert into view_counts(raindrop_id, count) values (?, 0)" +
+			" on conflict(raindrop_id)" +
+			" do update set count = count + 1",
+	)
 	if err != nil {
 		return err
 	}
