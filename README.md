@@ -24,6 +24,8 @@ A test token is required to download bookmarks from Raindrop.
 
 Save the created test token.
 
+ref. [Obtain access token \- API Documentation](https://developer.raindrop.io/v1/authentication/token)
+
 ### Download Raindrop.alfredworkflow
 
 Download the `Raindrop.alfredworkflow` file from the [Releases](https://github.com/yskoht/alfred-raindrop/releases) page.
