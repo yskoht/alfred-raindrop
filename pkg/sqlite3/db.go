@@ -174,7 +174,7 @@ func IncrementViewCount(id int) error {
 	defer db.Close()
 
 	stmt, err := db.Prepare(
-		"insert into view_counts(raindrop_id, count) values (?, 0)" +
+		"insert into view_counts(raindrop_id, count) values (?, 1)" +
 			" on conflict(raindrop_id)" +
 			" do update set count = count + 1",
 	)
