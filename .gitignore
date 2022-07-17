@@ -2,4 +2,6 @@
 db/db.sqlite3
 bin/raindrop-sync
 bin/raindrop-search
+bin/raindrop-find
+bin/raindrop-increment
 
