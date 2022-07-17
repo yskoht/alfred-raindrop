@@ -3,15 +3,25 @@ package sqlite3
 import (
 	"database/sql"
 	"fmt"
+	"os"
 	"strings"
 
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/yskoht/alfred-raindrop/pkg/file"
 	"github.com/yskoht/alfred-raindrop/pkg/raindrop"
 )
 
 const (
 	DB_FILE = "./db/db.sqlite3"
 )
+
+func RemoveDB() error {
+	if !file.Exists(DB_FILE) {
+		return nil
+	}
+
+	return os.Remove(DB_FILE)
+}
 
 func insertValues(raindrops []raindrop.Raindrop) string {
 	values := make([]string, 0)
