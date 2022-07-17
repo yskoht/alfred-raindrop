@@ -107,7 +107,7 @@ func Search(keywords []string) ([]Raindrop, error) {
 		return nil, err
 	}
 
-	pattern := "'%" + strings.Join(keywords, "%") + "%'"
+	pattern := "%" + strings.Join(keywords, "%") + "%"
 	rows, err := search.Query(pattern, pattern)
 	if err != nil {
 		return nil, err
