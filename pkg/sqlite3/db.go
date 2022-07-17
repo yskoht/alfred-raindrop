@@ -69,6 +69,32 @@ type Raindrop struct {
 	Link  string
 }
 
+func convertRowToRaindrop(row *sql.Row) (*Raindrop, error) {
+	var id int
+	var title string
+	var link string
+
+	err := row.Scan(&id, &title, &link)
+	if err != nil {
+		return nil, err
+	}
+
+	return &Raindrop{ID: id, Title: title, Link: link}, nil
+}
+
+func convertRowsToRaindrop(rows *sql.Rows) (*Raindrop, error) {
+	var id int
+	var title string
+	var link string
+
+	err := rows.Scan(&id, &title, &link)
+	if err != nil {
+		return nil, err
+	}
+
+	return &Raindrop{ID: id, Title: title, Link: link}, nil
+}
+
 func Search(keywords []string) ([]Raindrop, error) {
 	db, err := sql.Open("sqlite3", DB_FILE)
 	if err != nil {
@@ -89,15 +115,33 @@ func Search(keywords []string) ([]Raindrop, error) {
 
 	raindrops := make([]Raindrop, 0)
 	for rows.Next() {
-		var id int
-		var title string
-		var link string
-		err = rows.Scan(&id, &title, &link)
+		raindrop, err := convertRowsToRaindrop(rows)
 		if err != nil {
 			return nil, err
 		}
-		raindrops = append(raindrops, Raindrop{ID: id, Title: title, Link: link})
+		raindrops = append(raindrops, *raindrop)
 	}
 
 	return raindrops, nil
+}
+
+func Find(id int) (*Raindrop, error) {
+	db, err := sql.Open("sqlite3", DB_FILE)
+	if err != nil {
+		return nil, err
+	}
+	defer db.Close()
+
+	stmt, err := db.Prepare("select id, title, link from raindrops where id = ?")
+	if err != nil {
+		return nil, err
+	}
+
+	row := stmt.QueryRow(id)
+	raindrop, err := convertRowToRaindrop(row)
+	if err != nil {
+		return nil, err
+	}
+
+	return raindrop, nil
 }
