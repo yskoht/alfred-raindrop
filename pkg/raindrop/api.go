@@ -2,6 +2,7 @@ package raindrop
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -59,10 +60,16 @@ func getRaindrops(token string, page int) ([]Raindrop, error) {
 	}
 
 	defer resp.Body.Close()
-	_body, _ := io.ReadAll(resp.Body)
+	_body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
 
 	var body GetRaindropsBody
 	json.Unmarshal(_body, &body)
+	if !body.Result {
+		return nil, errors.New("failed to fetch bookmark")
+	}
 
 	return body.Items, nil
 }

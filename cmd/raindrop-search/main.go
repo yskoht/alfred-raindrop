@@ -1,6 +1,10 @@
 package main
 
 import (
+	"os"
+
+	"github.com/yskoht/alfred-raindrop/pkg/sqlite3"
+
 	aw "github.com/deanishe/awgo"
 	raindropSearch "github.com/yskoht/alfred-raindrop/internal/raindrop-search"
 )
@@ -11,11 +15,22 @@ func init() {
 	wf = aw.New()
 }
 
+func exists(filename string) bool {
+	_, err := os.Stat(filename)
+	return err == nil
+}
+
 func run() {
+	if !exists(sqlite3.DB_FILE) {
+		wf.Warn("Database not found", "Please type `raindrop-sync`")
+		return
+	}
+
 	keywords := wf.Args()
 
 	raindrops, err := raindropSearch.RaindropSearch(keywords)
 	if err != nil {
+		wf.FatalError(err)
 		return
 	}
 

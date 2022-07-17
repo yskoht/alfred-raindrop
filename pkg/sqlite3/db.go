@@ -80,7 +80,7 @@ func Search(keywords []string) ([]Raindrop, error) {
 	)
 	rows, err := db.Query(search)
 	if err != nil {
-		fmt.Println(err)
+		return nil, err
 	}
 
 	raindrops := make([]Raindrop, 0)
@@ -90,7 +90,7 @@ func Search(keywords []string) ([]Raindrop, error) {
 		var link string
 		err = rows.Scan(&id, &title, &link)
 		if err != nil {
-			fmt.Println(err)
+			return nil, err
 		}
 		raindrops = append(raindrops, Raindrop{ID: id, Title: title, Link: link})
 	}

@@ -1,28 +1,37 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-	"github.com/deanishe/awgo"
-	"github.com/yskoht/alfred-raindrop/internal/raindrop-sync"
 	"os"
+
+	raindropSync "github.com/yskoht/alfred-raindrop/internal/raindrop-sync"
 )
 
-var wf *aw.Workflow
+func getToken() (string, error) {
+	testToken := os.Getenv("testToken")
+	if testToken == "" {
+		return "", errors.New("testToken not found")
+	}
 
-func init() {
-	wf = aw.New()
+	token := fmt.Sprintf("Bearer %s", testToken)
+	return token, nil
 }
 
 func run() {
-	testToken := os.Getenv("testToken")
-	token := fmt.Sprintf("Bearer %s", testToken)
-
-	err := raindropSync.RaindropSync(token)
+	token, err := getToken()
 	if err != nil {
+		fmt.Print(err)
+		return
+	}
+
+	err = raindropSync.RaindropSync(token)
+	if err != nil {
+		fmt.Print(err)
 		return
 	}
 }
 
 func main() {
-	wf.Run(run)
+	run()
 }
