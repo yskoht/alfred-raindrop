@@ -1,9 +1,5 @@
 build:
-	go build -o bin/raindrop-sync ./cmd/raindrop-sync
-	go build -o bin/raindrop-search ./cmd/raindrop-search
-	go build -o bin/raindrop-find ./cmd/raindrop-find
-	go build -o bin/raindrop-increment ./cmd/raindrop-increment
-	go build -o bin/raindrop-reset ./cmd/raindrop-reset
+	go build -o bin/raindrop ./cmd/raindrop
 
 format:
 	gofmt -w ./cmd/raindrop-find/main.go
