@@ -1,4 +1,4 @@
 .vscode/*.log
 db/db.sqlite3
-bin/raindrop
+bin/raindrop*
 
