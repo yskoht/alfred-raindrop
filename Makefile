@@ -1,7 +1,5 @@
 build:
-	GOOS=darwin GOARCH=arm64 go build -o ./bin/raindrop.arm64 ./cmd/raindrop
-	GOOS=darwin GOARCH=amd64 go build -o ./bin/raindrop.amd64 ./cmd/raindrop
-	lipo -create -output ./bin/raindrop ./bin/raindrop.arm64 ./bin/raindrop.amd64
+	go build -o ./bin/raindrop ./cmd/raindrop
 
 format:
 	gofmt -w ./cmd/raindrop/main.go
