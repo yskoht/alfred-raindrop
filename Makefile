@@ -16,3 +16,7 @@ format:
 
 clean:
 	rm -rf ./bin/raindrop\.*
+
+allclean:
+	rm -rf ./bin/raindrop*
+
